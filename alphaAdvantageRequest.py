@@ -12,13 +12,12 @@ listOfTickers = ["ASX:CBA"]    # , "ASX:CBA", "ASX:MP1"
 # Chose your output format, or default to JSON (python dict)
 ts = TimeSeries(API_KEY, output_format='pandas')
 ti = TechIndicators(API_KEY)
-counter = 0
 
 # Get the data, returns a tuple
 # data is a pandas dataframe, meta_data is a dict
 for ticker in listOfTickers:
 
-    aapl_data, aapl_meta_data = ts.get_daily(symbol=ticker)
+    aapl_data, aapl_meta_data = ts.get_daily(symbol=ticker, outputsize='full')
     # aapl_sma is a dict, aapl_meta_sma also a dict
     aapl_ema, aapl_meta_sma = ti.get_ema(symbol=ticker)
     # generate output file based on current ticker name. Removes "ASX:"
