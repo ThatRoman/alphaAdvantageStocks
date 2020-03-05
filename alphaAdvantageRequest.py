@@ -5,6 +5,7 @@ from alpha_vantage.timeseries import TimeSeries
 from alpha_vantage.techindicators import TechIndicators
 from matplotlib.pyplot import figure
 import matplotlib.pyplot as plt
+import pandas as pd
 
 API_KEY = "VMJ3EI4FQQYU6323"
 listOfTickers = ["ASX:CBA"]    # , "ASX:CBA", "ASX:MP1"
@@ -17,21 +18,21 @@ ti = TechIndicators(API_KEY)
 # data is a pandas dataframe, meta_data is a dict
 for ticker in listOfTickers:
 
-    aapl_data, aapl_meta_data = ts.get_daily(symbol=ticker, outputsize='full')
+    df, df_meta_data = ts.get_daily(symbol=ticker, outputsize='full')
     # aapl_sma is a dict, aapl_meta_sma also a dict
-    aapl_ema, aapl_meta_sma = ti.get_ema(symbol=ticker)
+    df_ema, df_meta_sma = ti.get_ema(symbol=ticker)
+    df = df.rename_axis(None)
     # generate output file based on current ticker name. Removes "ASX:"
     outfilename = "D:/00git/alphaAdvantageStocks/TestDeleteOutput" + ticker.replace('ASX:', '') + ".pkl"
+    test_df = pd.DataFrame.from_dict(df_ema, orient='index', columns=['EMA'])
+    print(test_df,df)
+    df = pd.concat([df, test_df], axis=1)
+    # df["Vol20dAvrg"] = map(is_hammer, df["Open"], df["Low"], df["Close"], df["High"])
+    print(df.tail())
 
-
-
-    print(outfilename)
     # with open(outfilename, 'w') as outfile:
     #     aapl_data.to_pickle(outfilename)
 
-
-
-print(aapl_data, type(aapl_data))
 
 # # Visualization
 # figure(num=None, figsize=(15, 6), dpi=80, facecolor='w', edgecolor='k')
