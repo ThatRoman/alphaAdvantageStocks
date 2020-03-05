@@ -22,9 +22,12 @@ for ticker in listOfTickers:
     aapl_ema, aapl_meta_sma = ti.get_ema(symbol=ticker)
     # generate output file based on current ticker name. Removes "ASX:"
     outfilename = "D:/00git/alphaAdvantageStocks/TestDeleteOutput" + ticker.replace('ASX:', '') + ".pkl"
+
+
+
     print(outfilename)
-    with open(outfilename, 'w') as outfile:
-        aapl_data.to_pickle(outfilename)
+    # with open(outfilename, 'w') as outfile:
+    #     aapl_data.to_pickle(outfilename)
 
 
 

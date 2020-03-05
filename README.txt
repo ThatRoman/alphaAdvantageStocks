@@ -1,13 +1,11 @@
-Brandon Aubrey
+Based on Brandon Aubrey project
 
 Made for Python 3.7
 
 Simple project in progress using python to call Alpha Advantage's
 API to pull current stock information. Saves this information to
-json file and graphs it on Plotly. 
+pickle (With Pandas DataFrame inside) file. 
 
 Work needed:
 -alphaAdvantage.py 
-	- Take in input as ticker symbols(strings).
-	- Input testing and error handling
-	- Find trends in data
+	- add indicators like EMA, SMAs, Percentage from x-days period Volume etc.
