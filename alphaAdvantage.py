@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 #plotly.tools.set_credentials_file(username='baubrey1995', api_key='MhknaPvemAoRWETVOW5q')
 
 #My API Key
-API_KEY = "DX51OTRPXJAVT9O2"
+API_KEY = "******"
 
 #URL to access our info
 #stock symbols(Required)
