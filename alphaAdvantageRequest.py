@@ -7,7 +7,7 @@ from matplotlib.pyplot import figure
 import matplotlib.pyplot as plt
 import pandas as pd
 
-API_KEY = "VMJ3EI4FQQYU6323"
+API_KEY = "your key"
 listOfTickers = ["ASX:CBA"]    # , "ASX:CBA", "ASX:MP1"
 
 # Chose your output format, or default to JSON (python dict)
